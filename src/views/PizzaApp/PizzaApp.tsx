@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './PizzaApp.css'
 
-function App() {
+function PizzaApp() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="PizzaApp">
+      <header className="PizzaApp-header">
+        <div className="PizzaApp-logo container">
+          <i className="PizzaApp-logo--icon fas fa-pizza-slice"></i>
+          <h1 className="PizzaApp-logo--name">Yummy Pizza</h1>
+        </div>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default PizzaApp
