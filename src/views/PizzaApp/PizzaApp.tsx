@@ -10,6 +10,10 @@ function PizzaApp() {
           <h1 className="PizzaApp-logo--name">Yummy Pizza</h1>
         </div>
       </header>
+      <main className="PizzaApp-main">
+        <h2 className="PizzaApp-title">Create your own delicious Freshly Bake Pizza</h2>
+        <button className="PizzaApp-button">Order Pizza Now</button>
+      </main>
     </div>
   )
 }

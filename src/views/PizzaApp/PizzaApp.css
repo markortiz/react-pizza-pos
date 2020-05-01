@@ -39,5 +39,21 @@
   flex-direction: column;
   flex-grow: 1;
   color: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+}
+.PizzaApp-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid #FAC564;
+  color: #FAC564;
+  font-size: 2rem;
+  padding: 1rem;
+}
+.PizzaApp-button:focus {
+  outline: 0;
+}
+.PizzaApp-button:hover {
+  background-color: rgba(250, 197, 100, 0.5);
+  color: #FFFFFF;
 }
 
