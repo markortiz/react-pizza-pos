@@ -1,0 +1,34 @@
+.OrderPage {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+}
+.OrderPage-title {
+  margin: 2rem;
+}
+.OrderPage-pizza-sizes {
+  justify-content: space-evenly;
+}
+.OrderPage-pizza-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid #FAC564;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem auto;
+}
+.OrderPage-pizza-icon [class*="pizza-icon"] {
+  fill: #FAC564;
+}
+.OrderPage-pizza-icon:focus,
+.OrderPage-pizza-icon:hover {
+  background-color: rgba(250, 197, 100, 0.5);
+  font-weight: bold;
+  outline: none;
+}
