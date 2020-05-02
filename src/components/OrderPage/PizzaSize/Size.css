@@ -1,4 +1,4 @@
-.OrderPage {
+.PizzaSize {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -6,13 +6,13 @@
   align-items: center;
   justify-content: center;
 }
-.OrderPage-title {
-  margin: 2rem;
+.PizzaSize-title {
+  margin: 2rem auto;
 }
-.OrderPage-pizza-sizes {
+.PizzaSize-choices {
   justify-content: space-evenly;
 }
-.OrderPage-pizza-icon {
+.PizzaSize-icon {
   background-color: rgba(0, 0, 0, 0.5);
   border: 2px solid #FAC564;
   color: #FFFFFF;
@@ -23,11 +23,11 @@
   padding: 1rem;
   margin: 1rem auto;
 }
-.OrderPage-pizza-icon [class*="pizza-icon"] {
+.PizzaSize-icon [class*="pizza-icon"] {
   fill: #FAC564;
 }
-.OrderPage-pizza-icon:focus,
-.OrderPage-pizza-icon:hover {
+.PizzaSize-icon:focus,
+.PizzaSize-icon:hover {
   background-color: rgba(250, 197, 100, 0.5);
   font-weight: bold;
   outline: none;
