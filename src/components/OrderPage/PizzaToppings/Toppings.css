@@ -1,0 +1,32 @@
+.PizzaToppings {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+}
+.PizzaToppings-title {
+  margin: 2rem auto;
+}
+.PizzaToppings-choices {
+  justify-content: space-evenly;
+}
+.PizzaToppings-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid #FAC564;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem auto;
+}
+.PizzaToppings-icon.active,
+.PizzaToppings-icon:focus,
+.PizzaToppings-icon:hover {
+  background-color: rgba(250, 197, 100, 0.5);
+  font-weight: bold;
+  outline: none;
+}
