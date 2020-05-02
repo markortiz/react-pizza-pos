@@ -8,7 +8,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.PizzaApp {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: scroll;
+  padding-top: 4rem;
+}
+.PizzaApp::after {
+  content: "";
+  background: url(./assets/img/bg.jpg) no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
 }
