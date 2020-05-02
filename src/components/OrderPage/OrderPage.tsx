@@ -1,27 +1,64 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './Order.css'
-import { ReactComponent as PizzaIcon } from '../../assets/img/pizza.svg'
+import PizzaSize from './PizzaSize/Size'
+import PizzaCrust from './PizzaCrust/Crust'
+import PizzaToppings from './PizzaToppings/Toppings'
 
 function OrderPage() {
+  const [view, setView] = useState('size')
+
+  const onNextView = () => {
+    console.log('view',view)
+    if(view === 'size') {
+      setView('crust')
+    } else if(view === 'crust') {
+      setView('toppings')
+    } else {
+      setView('size')
+    }
+  }
+
   return (
     <section className="OrderPage animated fadeIn">
-      <h2 className="OrderPage-title">Select your pizza size:</h2>
-      <div className="container">
-        <div className="OrderPage-pizza-sizes row">
-          <button className="OrderPage-pizza-icon col-md-3 col-8">
-            <PizzaIcon className="pizza-icon col-6"/>
-            <span>Small - $8</span>
-          </button>
-          <button className="OrderPage-pizza-icon col-md-3 col-8">
-            <PizzaIcon className="pizza-icon col-8"/>
-            <span>Medium - $10</span>
-          </button>
-          <button className="OrderPage-pizza-icon col-md-3 col-8">
-            <PizzaIcon className="pizza-icon col-12"/>
-            <span>Large - $12</span>
-          </button>
-        </div>
-      </div>
+      <TransitionGroup component={null}>
+        {
+          view==='size' && (
+            <CSSTransition
+              key='pizza-size'
+              timeout={350}
+              unmountOnExit={true}
+              classNames='display'
+            >
+              <PizzaSize onNextView={onNextView}/>
+            </CSSTransition>
+          )
+        }
+        {
+          view==='crust' && (
+            <CSSTransition
+              key='pizza-crust'
+              timeout={350}
+              unmountOnExit={true}
+              classNames='display'
+            >
+              <PizzaCrust onNextView={onNextView}/>
+            </CSSTransition>
+          )
+        }
+        {
+          view==='toppings' && (
+            <CSSTransition
+              key='pizza-toppings'
+              timeout={350}
+              unmountOnExit={true}
+              classNames='display'
+            >
+              <PizzaToppings onNextView={onNextView}/>
+            </CSSTransition>
+          )
+        }
+      </TransitionGroup>
     </section>
   )
 }
