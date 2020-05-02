@@ -1,0 +1,30 @@
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.HomePage-title {
+  font-size: 5vh;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.HomePage-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid #FAC564;
+  color: #FAC564;
+  font-size: 2rem;
+  padding: 1rem;
+}
+.HomePage-button:focus {
+  outline: 0;
+}
+.HomePage-button:hover {
+  background-color: rgba(250, 197, 100, 0.5);
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
