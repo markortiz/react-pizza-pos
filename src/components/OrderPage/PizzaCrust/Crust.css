@@ -1,0 +1,34 @@
+.PizzaCrust {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+}
+.PizzaCrust-title {
+  margin: 2rem auto;
+}
+.PizzaCrust-choices {
+  justify-content: space-evenly;
+}
+.PizzaCrust-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid #FAC564;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem auto;
+}
+.PizzaCrust-icon [class*="pizza-icon"] {
+  fill: #FAC564;
+}
+.PizzaCrust-icon:focus,
+.PizzaCrust-icon:hover {
+  background-color: rgba(250, 197, 100, 0.5);
+  font-weight: bold;
+  outline: none;
+}
