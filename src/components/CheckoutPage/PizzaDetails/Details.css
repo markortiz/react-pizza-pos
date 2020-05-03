@@ -1,0 +1,78 @@
+.Details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.Details-title {
+  font-size: 5vh;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.Details-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid #FAC564;
+  color: #FAC564;
+  font-size: 2rem;
+  padding: 1rem;
+}
+.Details-button:focus {
+  outline: 0;
+}
+.Details-button:hover {
+  background-color: rgba(250, 197, 100, 0.9);
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.Details-custom-pizza {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 2rem auto;
+}
+.Details-title-3 {
+  text-align: center;
+  background-color: #F8B500;
+  color: #000000;
+  padding: 0.3rem;
+}
+.Details-custom-pizza--col {
+  padding: 0;
+  padding-left: 5px;
+  text-align: center;
+  padding-bottom: 1rem;
+  justify-content: center;
+}
+.Details-custom-pizza--col p {
+  margin: 0;
+}
+.Details-custom-pizza--col ul {
+ list-style: none;
+ padding: 0;
+}
+.Details-custom-price {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 2rem auto;
+}
+.Details-custom-price [class*="col-"] {
+  padding: 0.5rem;
+}
+.Details-custom-price .price-label {
+  margin: 0;
+  padding: 0.5rem;
+}
+.Details-custom-price .price-amount {
+  background-color: rgba(248, 181, 0, 1);
+  color: #000000;
+  font-weight: bold;
+  text-align: right;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+@media only screen and (max-width: 576px) {
+  .Details-custom-pizza--col {
+    padding-left: 0;
+  }
+}
