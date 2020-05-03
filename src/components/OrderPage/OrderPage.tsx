@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
+
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as CartActions from '../../actions/cart';
+
 import './Order.css'
 import PizzaSize from './PizzaSize/Size'
 import PizzaCrust from './PizzaCrust/Crust'
@@ -63,4 +68,22 @@ function OrderPage() {
   )
 }
 
-export default OrderPage
+
+
+function mapStateToProps(state: any) {
+  return {
+    cart: state.cart.cart,
+    menu: state.cart.menu
+  };
+}
+
+function mapDispatchToProps(dispatch: any) {
+  return bindActionCreators({
+    setLibrary: CartActions.addToCart,
+  }, dispatch);
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(OrderPage);

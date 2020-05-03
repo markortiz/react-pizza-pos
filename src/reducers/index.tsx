@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import { connectRouter } from 'connected-react-router'
-import order from './order'
+import cart from './cart'
 
 const createRootReducer = (history: any) => combineReducers({
   router: connectRouter(history),
-  order
+  cart
 })
 
 export default createRootReducer
