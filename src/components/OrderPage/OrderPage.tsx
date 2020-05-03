@@ -12,12 +12,12 @@ import PizzaCrust from './PizzaCrust/Crust'
 import PizzaToppings from './PizzaToppings/Toppings'
 
 function OrderPage(props: any) {
-  const { sizes, crusts, toppings, addOns, addToCart } = props
+  const { sizes, crusts, toppings, addOns, cart, addToCart } = props
   const [view, setView] = useState('size')
   const history = useHistory();
 
   const onNextView = (item: Object) => {
-    addToCart(item)
+    addToCart({...item})
 
     if(view === 'size') {
       setView('crust')
@@ -63,7 +63,7 @@ function OrderPage(props: any) {
               unmountOnExit={true}
               classNames='page'
             >
-              <PizzaToppings onNextView={onNextView} toppings={toppings} addOns={addOns} />
+              <PizzaToppings onNextView={onNextView} toppings={toppings} addOns={addOns} maxToppings={cart.size?.maxToppings}/>
             </CSSTransition>
           )
         }
