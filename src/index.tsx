@@ -14,9 +14,11 @@ const store = configureStore()
 const NavBar = React.lazy(() => import('./components/NavBar/NavBar'))
 const HomePage = React.lazy(() => import('./components/HomePage/HomePage'))
 const OrderPage = React.lazy(() => import('./components/OrderPage/OrderPage'))
+const CheckoutPage = React.lazy(() => import('./components/CheckoutPage/CheckoutPage'))
 const routes = [
   { path: '/', name: 'Home', Component: HomePage },
   { path: '/order', name: 'Order', Component: OrderPage },
+  { path: '/checkout', name: 'Checkout', Component: CheckoutPage },
 ]
 const loading = () => (
     <div className="d-flex justify-content-center">

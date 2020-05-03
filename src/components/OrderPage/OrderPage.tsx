@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 import { bindActionCreators } from 'redux';
@@ -10,16 +11,10 @@ import PizzaSize from './PizzaSize/Size'
 import PizzaCrust from './PizzaCrust/Crust'
 import PizzaToppings from './PizzaToppings/Toppings'
 
-interface Menu {
-  sizes: Array<object>;
-  crust: Array<object>;
-  toppings: Array<string>;
-  addOns: Object;
-}
-
 function OrderPage(props: any) {
-  const { sizes, crusts, toppings, addOns, cart, addToCart } = props
+  const { sizes, crusts, toppings, addOns, addToCart } = props
   const [view, setView] = useState('size')
+  const history = useHistory();
 
   const onNextView = (item: Object) => {
     addToCart(item)
@@ -29,7 +24,7 @@ function OrderPage(props: any) {
     } else if(view === 'crust') {
       setView('toppings')
     } else {
-      setView('review')
+      history.push("/checkout")
     }
   }
 
@@ -69,25 +64,6 @@ function OrderPage(props: any) {
               classNames='page'
             >
               <PizzaToppings onNextView={onNextView} toppings={toppings} addOns={addOns} />
-            </CSSTransition>
-          )
-        }
-        {
-          view==='review' && (
-            <CSSTransition
-              key='pizza-toppings'
-              timeout={350}
-              unmountOnExit={true}
-              classNames='page'
-            >
-              <>
-                <h1>Cart:</h1>
-                <ul>
-                {
-                  cart.map((item: Object) => (<li>{JSON.stringify(item)}</li>))
-                }
-                </ul>
-              </>
             </CSSTransition>
           )
         }
