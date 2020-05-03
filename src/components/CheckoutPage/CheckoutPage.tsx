@@ -1,23 +1,52 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useState } from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './CheckoutPage.css'
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as CartActions from '../../actions/cart';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as CartActions from '../../actions/cart'
+
+import PizzaDetails from './PizzaDetails/Details'
+import Receipt from './Receipt/Receipt'
 
 function CheckoutPage(props: any) {
   const { cart } = props
+  const [view, setView] = useState('details')
+
+  const onNextView = () => {
+    if (view === 'details') {
+      setView('receipt')
+    }
+  }
 
   return (
-    <main className="CheckoutPage animated fadeIn">
-      <h2 className="CheckoutPage-title">Check your custom pizza</h2>
-      <ul>
-      {
-        cart.map((item: Object) => (<li>{JSON.stringify(item)}</li>))
-      }
-      </ul>
-      <NavLink exact to='/checkout' className="CheckoutPage-button">Checkout Now</NavLink>
+    <main className="CheckoutPage">
+      <TransitionGroup component={null}>
+        {
+          view==='details' && (
+            <CSSTransition
+              key='pizza-details'
+              timeout={350}
+              unmountOnExit={true}
+              classNames='page'
+            >
+              <PizzaDetails onNextView={onNextView} cart={cart} />
+            </CSSTransition>
+          )
+        }
+        {
+          view==='receipt' && (
+            <CSSTransition
+              key='receipt'
+              timeout={350}
+              unmountOnExit={true}
+              classNames='page'
+            >
+              <Receipt />
+            </CSSTransition>
+          )
+        }
+      </TransitionGroup>
     </main>
   )
 }

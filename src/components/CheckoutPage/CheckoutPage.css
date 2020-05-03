@@ -23,8 +23,7 @@
   outline: 0;
 }
 .CheckoutPage-button:hover {
-  background-color: rgba(250, 197, 100, 0.5);
+  background-color: rgba(250, 197, 100, 0.9);
   color: #FFFFFF;
   text-decoration: none;
 }
-
