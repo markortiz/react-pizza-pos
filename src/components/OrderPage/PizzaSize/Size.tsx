@@ -2,7 +2,7 @@ import React from 'react'
 import './Size.css'
 import { ReactComponent as PizzaIcon } from '../../../assets/img/pizza.svg'
 
-interface Sizes {
+interface Size {
   name: string;
   price: number;
   maxToppings: string;
@@ -12,7 +12,7 @@ function PizzaSize(props: any) {
   const { onNextView, sizes } = props
   const iconSizes = ['col-6', 'col-8', 'col-12'] // Let's store this to array for simplicity
 
-  const setSize = (size: Sizes) => {
+  const setSize = (size: Size) => {
     onNextView({size})
   }
 
@@ -22,12 +22,11 @@ function PizzaSize(props: any) {
       <div className="container">
         <div className="PizzaSize-choices row">
           {
-            sizes.map((item: Sizes, index: number) => {
-              const { name, price } = item
+            sizes.map((item: Size, index: number) => {
               return (
-              <button key={`pizza-icon--${index}`} className="PizzaSize-icon col-md-3 col-8" onClick={() => setSize(item)}>
+              <button key={`pizza-size--${index}`} className="PizzaSize-icon col-md-3 col-8" onClick={() => setSize(item)}>
                 <PizzaIcon className={`pizza-icon ${iconSizes[index]}`}/>
-                <span>{name} - ${price}</span>
+                <span>{item.name} - ${item.price}</span>
               </button>
             )})
           }
