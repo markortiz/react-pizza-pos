@@ -20,7 +20,7 @@ const initialState = {
         maxToppings: 9,
       }
     ],
-    crust: [
+    crusts: [
       {
         name: 'Thin',
         price: 2,
