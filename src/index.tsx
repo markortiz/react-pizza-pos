@@ -10,11 +10,12 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import './index.css'
 import * as serviceWorker from './serviceWorker'
 
+import NavBar from './components/NavBar/NavBar'
+import HomePage from './components/HomePage/HomePage'
+import OrderPage from './components/OrderPage/OrderPage'
+import CheckoutPage from './components/CheckoutPage/CheckoutPage'
+
 const store = configureStore()
-const NavBar = React.lazy(() => import('./components/NavBar/NavBar'))
-const HomePage = React.lazy(() => import('./components/HomePage/HomePage'))
-const OrderPage = React.lazy(() => import('./components/OrderPage/OrderPage'))
-const CheckoutPage = React.lazy(() => import('./components/CheckoutPage/CheckoutPage'))
 const routes = [
   { path: '/', name: 'Home', Component: HomePage },
   { path: '/order', name: 'Order', Component: OrderPage },
@@ -40,8 +41,10 @@ ReactDOM.render(
                 {({ match }) => (
                   <CSSTransition
                     in={match != null}
+                    appear={true}
                     timeout={300}
                     classNames="page"
+                    mountOnEnter
                     unmountOnExit
                   >
                     <Component />
