@@ -32,24 +32,3 @@
   font-weight: bold;
   outline: none;
 }
-
-.display-enter {
-  opacity: 0;
-  transform: translateY(-50%);
-}
-.display-enter-active {
-  opacity: 1;
-  transform: translateY(50%);
-}
-.display-exit {
-  opacity: 1;
-  transform: translateY(50%);
-}
-.display-exit-active {
-  opacity: 0;
-  transform: translateY(100%);
-}
-.display-enter-active,
-.display-exit-active {
-  transition: opacity 300ms, transform 300ms;
-}
