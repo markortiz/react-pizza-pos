@@ -27,3 +27,28 @@ body {
   position: absolute;
   z-index: -1;   
 }
+
+/**
+* Page animation.
+* TODO: improve animation.
+*/
+.page-enter {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(50%);
+}
+.page-exit {
+  opacity: 1;
+  transform: translateY(50%);
+}
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(100%);
+}
+.page-enter-active,
+.page-exit-active {
+  transition: opacity 300ms, transform 300ms;
+}

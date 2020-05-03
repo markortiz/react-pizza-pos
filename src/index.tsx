@@ -1,21 +1,28 @@
 import React , { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { Route, Switch } from "react-router-dom"
+import { Route } from "react-router-dom"
 import { ConnectedRouter } from 'connected-react-router'
 import configureStore, { history } from './store/configureStore'
+import { CSSTransition } from 'react-transition-group'
 import 'bootstrap/dist/css/bootstrap.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import './index.css'
 import * as serviceWorker from './serviceWorker'
 
 const store = configureStore()
+const NavBar = React.lazy(() => import('./components/NavBar/NavBar'))
 const HomePage = React.lazy(() => import('./components/HomePage/HomePage'))
 const OrderPage = React.lazy(() => import('./components/OrderPage/OrderPage'))
-const NavBar = React.lazy(() => import('./components/NavBar/NavBar'))
+const routes = [
+  { path: '/', name: 'Home', Component: HomePage },
+  { path: '/order', name: 'Order', Component: OrderPage },
+]
 const loading = () => (
-    <div className="animated fadeIn pt-3 text-center">
-      <i className="fas fa-redo fa-spin"></i>
+    <div className="d-flex justify-content-center">
+      <div className="spinner-border" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
     </div>
   )
 
@@ -26,10 +33,20 @@ ReactDOM.render(
         <Suspense fallback={loading()}>
           <div className="PizzaApp">
             <NavBar />
-            <Switch>
-              <Route exact path="/" render={() => <HomePage /> } />
-              <Route exact path="/order" render={() => <OrderPage /> } />
-            </Switch>
+            {routes.map(({ path, Component }) => (
+              <Route key={path} exact path={path}>
+                {({ match }) => (
+                  <CSSTransition
+                    in={match != null}
+                    timeout={300}
+                    classNames="page"
+                    unmountOnExit
+                  >
+                    <Component />
+                  </CSSTransition>
+                )}
+              </Route>
+            ))}
           </div>
         </Suspense>
       </ConnectedRouter>
