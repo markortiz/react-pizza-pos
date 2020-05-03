@@ -10,17 +10,26 @@ import PizzaSize from './PizzaSize/Size'
 import PizzaCrust from './PizzaCrust/Crust'
 import PizzaToppings from './PizzaToppings/Toppings'
 
-function OrderPage() {
+interface Menu {
+  sizes: Array<object>;
+  crust: Array<object>;
+  toppings: Array<string>;
+  addOns: Object;
+}
+
+function OrderPage(props: any) {
+  const { sizes, crusts, toppings, addOns, cart, addToCart } = props
   const [view, setView] = useState('size')
 
-  const onNextView = () => {
-    console.log('view',view)
+  const onNextView = (item: Object) => {
+    addToCart(item)
+
     if(view === 'size') {
       setView('crust')
     } else if(view === 'crust') {
       setView('toppings')
     } else {
-      setView('size')
+      setView('review')
     }
   }
 
@@ -35,7 +44,7 @@ function OrderPage() {
               unmountOnExit={true}
               classNames='display'
             >
-              <PizzaSize onNextView={onNextView}/>
+              <PizzaSize onNextView={onNextView} sizes={sizes} />
             </CSSTransition>
           )
         }
@@ -47,7 +56,7 @@ function OrderPage() {
               unmountOnExit={true}
               classNames='display'
             >
-              <PizzaCrust onNextView={onNextView}/>
+              <PizzaCrust onNextView={onNextView} crusts={crusts} />
             </CSSTransition>
           )
         }
@@ -59,7 +68,26 @@ function OrderPage() {
               unmountOnExit={true}
               classNames='display'
             >
-              <PizzaToppings onNextView={onNextView}/>
+              <PizzaToppings onNextView={onNextView} toppings={toppings} addOns={addOns} />
+            </CSSTransition>
+          )
+        }
+        {
+          view==='review' && (
+            <CSSTransition
+              key='pizza-toppings'
+              timeout={350}
+              unmountOnExit={true}
+              classNames='display'
+            >
+              <>
+                <h1>Cart:</h1>
+                <ul>
+                {
+                  cart.map((item: Object) => (<li>{JSON.stringify(item)}</li>))
+                }
+                </ul>
+              </>
             </CSSTransition>
           )
         }
@@ -73,13 +101,16 @@ function OrderPage() {
 function mapStateToProps(state: any) {
   return {
     cart: state.cart.cart,
-    menu: state.cart.menu
+    sizes: state.cart.menu.sizes,
+    crusts: state.cart.menu.crusts,
+    toppings: state.cart.menu.toppings,
+    addOns: state.cart.menu.addOns,
   };
 }
 
 function mapDispatchToProps(dispatch: any) {
   return bindActionCreators({
-    setLibrary: CartActions.addToCart,
+    addToCart: CartActions.addToCart,
   }, dispatch);
 }
 
