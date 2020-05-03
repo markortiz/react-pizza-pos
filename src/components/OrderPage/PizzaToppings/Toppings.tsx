@@ -1,8 +1,18 @@
 import React, { useState } from 'react'
 import './Toppings.css'
 
-function PizzaToppings(props: any) {
-  const { onNextView, toppings, addOns } = props;
+interface PizzaToppingsProps {
+  onNextView: any;
+  toppings: Array<string>;
+  addOns: {
+    freeToppings: number,
+    excessToppingsPrice: number,
+  };
+  maxToppings: number;
+}
+
+function PizzaToppings(props: PizzaToppingsProps) {
+  const { onNextView, toppings, addOns, maxToppings } = props;
   const [selectedToppings, setToppings] = useState<string[]>([])
   const [warning, setWarning] = useState<string|null>(null)
 
@@ -10,7 +20,6 @@ function PizzaToppings(props: any) {
     const { target } = event
     const item = target.getAttribute('data-item')
     const index = selectedToppings.indexOf(item)
-    const maxToppings = 5
     let newToppings = [...selectedToppings]
     let warningMessage = warning
 
@@ -57,7 +66,7 @@ function PizzaToppings(props: any) {
                 <span>
                   {item}
                   { 
-                    selectedToppings.length >= addOns?.freeToppings 
+                    selectedToppings.length >= addOns.freeToppings 
                     && (<small><br/>(+${addOns.excessToppingsPrice.toFixed(2)})</small>)
                   }
                 </span>
