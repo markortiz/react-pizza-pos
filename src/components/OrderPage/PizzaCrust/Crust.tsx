@@ -16,7 +16,7 @@ function PizzaCrust(props: any) {
 
   return (
     <section className="PizzaCrust">
-      <h2 className="PizzaCrust-title">Select your pizza crust:</h2>
+      <h2 className="PizzaCrust-title">Choose your pizza crust:</h2>
       <div className="container">
         <div className="PizzaCrust-container row">
           {

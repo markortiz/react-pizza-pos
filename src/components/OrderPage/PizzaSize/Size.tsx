@@ -18,7 +18,7 @@ function PizzaSize(props: any) {
 
   return (
     <section className="PizzaSize">
-      <h2 className="PizzaSize-title">Select your pizza size:</h2>
+      <h2 className="PizzaSize-title">Choose your pizza size:</h2>
       <div className="container">
         <div className="PizzaSize-choices row">
           {

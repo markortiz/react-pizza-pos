@@ -42,7 +42,7 @@ function OrderPage(props: any) {
               key='pizza-size'
               timeout={350}
               unmountOnExit={true}
-              classNames='display'
+              classNames='page'
             >
               <PizzaSize onNextView={onNextView} sizes={sizes} />
             </CSSTransition>
@@ -54,7 +54,7 @@ function OrderPage(props: any) {
               key='pizza-crust'
               timeout={350}
               unmountOnExit={true}
-              classNames='display'
+              classNames='page'
             >
               <PizzaCrust onNextView={onNextView} crusts={crusts} />
             </CSSTransition>
@@ -66,7 +66,7 @@ function OrderPage(props: any) {
               key='pizza-toppings'
               timeout={350}
               unmountOnExit={true}
-              classNames='display'
+              classNames='page'
             >
               <PizzaToppings onNextView={onNextView} toppings={toppings} addOns={addOns} />
             </CSSTransition>
@@ -78,7 +78,7 @@ function OrderPage(props: any) {
               key='pizza-toppings'
               timeout={350}
               unmountOnExit={true}
-              classNames='display'
+              classNames='page'
             >
               <>
                 <h1>Cart:</h1>
