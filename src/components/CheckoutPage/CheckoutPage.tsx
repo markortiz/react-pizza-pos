@@ -2,15 +2,13 @@ import React, { useState } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './CheckoutPage.css'
 
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import * as CartActions from '../../actions/cart'
 
 import PizzaDetails from './PizzaDetails/Details'
 import Receipt from './Receipt/Receipt'
 
 function CheckoutPage(props: any) {
-  const { cart } = props
+  const { cart, addOns } = props
   const [view, setView] = useState('details')
 
   const onNextView = () => {
@@ -30,7 +28,7 @@ function CheckoutPage(props: any) {
               unmountOnExit={true}
               classNames='page'
             >
-              <PizzaDetails onNextView={onNextView} cart={cart} />
+              <PizzaDetails onNextView={onNextView} cart={cart} addOns={addOns} />
             </CSSTransition>
           )
         }
@@ -54,16 +52,10 @@ function CheckoutPage(props: any) {
 function mapStateToProps(state: any) {
   return {
     cart: state.cart.cart,
+    addOns: state.cart.menu.addOns
   };
-}
-
-function mapDispatchToProps(dispatch: any) {
-  return bindActionCreators({
-    addToCart: CartActions.addToCart,
-  }, dispatch);
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
 )(CheckoutPage);
