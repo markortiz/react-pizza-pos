@@ -1,13 +1,11 @@
 .PizzaToppings {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
   color: #FFFFFF;
   align-items: center;
   justify-content: center;
 }
 .PizzaToppings-title {
-  margin: 2rem auto;
+  text-align: center;
+  justify-content: center;
 }
 .PizzaToppings-choices {
   justify-content: space-evenly;
@@ -21,7 +19,10 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  margin: 1rem auto;
+  margin: 1rem;
+}
+.PizzaToppings-icon span {
+  pointer-events: none;
 }
 .PizzaToppings-icon.active,
 .PizzaToppings-icon:focus,
@@ -29,4 +30,29 @@
   background-color: rgba(250, 197, 100, 0.5);
   font-weight: bold;
   outline: none;
+}
+
+.PizzaToppings-icon.active.free span small {
+  display: none;
+}
+
+.PizzaToppings-next {
+  justify-content: center;
+}
+.PizzaToppings-next--btn {
+  background-color: rgba(250, 197, 100, 0.8);
+  border: 2px solid #FAC564;
+  color: #000000;
+  font-weight: bold;
+  padding: 1rem;
+  margin: 1rem;
+}
+.PizzaToppings-warning {
+  background-color: #F8B500;
+  color: #000000;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  text-align: center;
 }
