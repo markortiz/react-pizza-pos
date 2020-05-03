@@ -1,7 +1,7 @@
 import { ADDTOCART } from '../actions/cart';
 
 const initialState = {
-  cart: [],
+  cart: { totalPrice: 0.00 },
   menu: {
     sizes: [
       {
